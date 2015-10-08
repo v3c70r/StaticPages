@@ -1,0 +1,32 @@
+<h1 id="skinning">Skinning</h1>
+
+<p>Skinning is a process to attach bone transformations to vertices.</p>
+
+<p>In HW1, you have 6999 vertices: <script id="MathJax-Element-1" type="math/tex">\mathbf{V}_0 \cdots \mathbf{V}_{6998}</script> and the weights (in <code>./model/weights.out</code>), which is a <script id="MathJax-Element-2" type="math/tex">6999 \times 17</script> matrix.</p>
+
+<p>What you need to do is to find transformation matrix for all vertices, i.e. <script id="MathJax-Element-3" type="math/tex">M_0 \cdots M_{6998}</script>.</p>
+
+<p>Here is how to get the transformation matrix for <script id="MathJax-Element-4" type="math/tex">\mathbf{V}_0</script>. </p>
+
+
+
+<p><script id="MathJax-Element-5" type="math/tex; mode=display">M_0 = \sum_{i=0}^{16} (T_i \times W_{0,i})</script></p>
+
+<p>Where <script id="MathJax-Element-6" type="math/tex">W_{0,i}</script> is the weight of <script id="MathJax-Element-7" type="math/tex">i</script>th bone to <script id="MathJax-Element-8" type="math/tex">\mathbf{V}_0</script>, which is also 1th row and (<script id="MathJax-Element-9" type="math/tex">i+1</script>)th column in weight file. </p>
+
+<p>Apply this for all of the vertices, you will have transformation matrices for all of the vertices on the mesh. Use them to transform the <code>orignal mesh</code>, you will get the deformed mesh.</p>
+
+
+
+<h1 id="vertices-access">Vertices access</h1>
+
+<p>In defMesh class, we have a <code>pmodel</code> pointer that points to a mesh. <code>pmodel-&gt;numvertices</code> is the number of vertices on the mesh. <code>pmodel-&gt;vertices</code> is a pointer to vertex array. Please note that the index of vertices starts from 1. So, here is the way to access all of the vertices.</p>
+
+
+
+<pre class="prettyprint"><code class="language-C hljs d"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i=<span class="hljs-number">1</span>; i&lt;=pmodel-&gt;numvertices; i++)
+{
+    pmodel-&gt;vertices[i*<span class="hljs-number">3</span>+<span class="hljs-number">0</span>]    <span class="hljs-comment">//x;</span>
+    pmodel-&gt;vertices[i*<span class="hljs-number">3</span>+<span class="hljs-number">1</span>]    <span class="hljs-comment">//y;</span>
+    pmodel-&gt;vertices[i*<span class="hljs-number">3</span>+<span class="hljs-number">2</span>]    <span class="hljs-comment">//z;</span>
+}</code></pre>
