@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COMP-477 HW2</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/solarized-light.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="linear-iterpolation">Linear Iterpolation</h1>
+
+<p>For a starting value <script id="MathJax-Element-1" type="math/tex">\mathbf{P_0}</script> and an end value <script id="MathJax-Element-2" type="math/tex">\mathbf{P_1}</script>, given a ratio <script id="MathJax-Element-3" type="math/tex">t\in [0,1]</script>, the interpolated value  <br>
+<script id="MathJax-Element-4" type="math/tex; mode=display">\mathbf{P_t}= (1-t)\cdot \mathbf{P_0}+t\cdot \mathbf{P_1}</script> <br>
+Where <script id="MathJax-Element-5" type="math/tex">\mathbf{P_0}</script> and <script id="MathJax-Element-6" type="math/tex">\mathbf{P_1}</script> can be matrices or eular angles.</p>
+
+
+
+<h1 id="slerp-spherical-linear-interpolation">SLERP (Spherical Linear Interpolation)</h1>
+
+<p><script id="MathJax-Element-7" type="math/tex; mode=display">Slerp(\mathbf{P_0, P_1};t)=\frac{\sin{(1-t)\Omega}}{\sin{\Omega}}\mathbf{P_0}+\frac{\sin{t\Omega}}{\sin {\Omega}}\mathbf{P_1}</script></p>
+
+<p>In quaternion form: <br>
+<script id="MathJax-Element-8" type="math/tex; mode=display">Slerp(q_0, q_1, t)=(q_1 q_0 ^{-1})^t q_0</script></p></div></body>
+</html>
