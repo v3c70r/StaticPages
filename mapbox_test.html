@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.css' rel='stylesheet' />
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.js'></script>
+    </head>
+    <body>
+        <div id='map' style='width: 800px; height: 800px;' />
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoidjNjNzByIiwiYSI6ImNpdmpsN203MzAxajcyemx2b3Jha3E3enoifQ.o645TrYhI8TaZ0JMa6WfXQ';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/v3c70r/civjq8gzl005m2jremcrs38rj'
+            });
+        </script>
+    </body>
+</html>
