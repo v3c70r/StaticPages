@@ -29,12 +29,10 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9'
 });
-
-map.setCenter([-73.57562416894726, 45.495095291039036]);
-map.setZoom(11.575115138395086);
-console.log(map.getCenter());
 // Load geojson data from url
 map.on('load', function () {
+    map.setCenter({lng: -73.57562416894726, lat: 45.495095291039036});
+    map.setZoom(11.575115138395086);
     map.addSource("parkings", {
         "type": "geojson",
         "data": "https://raw.githubusercontent.com/v3c70r/StaticPages/gh-pages/mtl_parking.geojson"
@@ -43,17 +41,13 @@ map.on('load', function () {
         "id": "parkings",
         "type": "circle",
         "source": "parkings",
-        "paint": {
-            "circle-color": "#00ffff",
-            "circle-blur": 0.5
-        }
     });
-    map.on('mousedown', function (e) {
+
+    map.on('mousemove', function (e) {
         var features = map.queryRenderedFeatures(e.point);
         document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
     });
 });
-map.setCenter([-73.57562416894726, 45.495095291039036]);
             
         </script>
     </body>
